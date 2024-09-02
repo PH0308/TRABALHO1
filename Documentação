@@ -1,0 +1,108 @@
+DOCUMENTAÇÃO:
+
+CAPÍTULO 1.
+Classe: ContaBancaria:
+Esta é a classe base para todas as contas bancárias e define os atributos e métodos comuns a todas as contas.
+Construtor (constructor)
+- Parâmetros: ID, Nome, Email, Senha, Saldo
+Inicializa os atributos da classe e cria um histórico vazio de transações.
+
+Método “Depositar”:
+- Parâmetros: valor
+- Função: Lança um erro indicando que o método não foi implementado na classe base. Deveria ser implementado nas classes derivadas (ContaCorrente e ContaPoupanca).
+
+Método “Sacar”:
+- Parâmetros: valor
+- Função: Lança um erro indicando que o método não foi implementado na classe base. Deveria ser implementado nas classes derivadas.
+
+Método “Transferir”:
+- Parâmetros: valor, contaDestino
+- Função: Lança um erro indicando que o método não foi implementado na classe base. Deveria ser implementado nas classes derivadas.
+
+Método “SaltoAtual”:
+- Função: Lança um erro indicando que o método não foi implementado. A propriedade “Salto”e o método "SaltoAtual” parecem ser desnecessários para a lógica atual, podendo ser removidos ou implementados conforme a necessidade.
+
+Método “GerarExtrato”:
+- Função: Exibe um extrato detalhado da conta, incluindo saldo inicial, histórico de transações e saldo final.
+
+Método “SaldoAtual”:
+- Função: Retorna o saldo atual da conta.
+
+CAPÍTULO 2.
+Classe ContaCorrente:
+Estende a classe ContaBancaria e implementa os métodos específicos para contas correntes.
+
+- Método “Depositar”:
+- Parâmetros: valor
+- Função: Adiciona um valor ao saldo da conta e registra a transação no histórico. Lança um erro se o valor for menor ou igual a zero.
+
+- Método “Sacar”:
+- Parâmetros: valor
+- Função: Retira um valor do saldo da conta e registra a transação no histórico. Lança erros se o valor for menor ou igual a zero ou se o saldo for insuficiente.
+
+- Método “Transferir”:
+- Parâmetros: valor, contaDestino
+- Função: Faz transferência para outra conta. Primeiro, retira o valor da conta de origem, e depois deposita na conta de destino. Lança erros se o valor for menor ou igual a zero ou se o saldo for insuficiente.
+
+Capítulo 3. 
+Classe ContaPoupanca:
+Estende ContaBancaria e implementa os métodos específicos para contas poupança.
+
+- Método “AplicarJuros”:
+- Parâmetros: taxa
+- Função: Aplica uma taxa de juros ao saldo da conta e registra a transação no histórico. Lança um erro se a taxa for menor ou igual a zero.
+
+- Método “Depositar”:
+- Parâmetros: valor
+- Função: Adiciona um valor ao saldo da conta e registra a transação no histórico. Lança um erro se o valor for menor ou igual a zero.
+
+- Método “Sacar”:
+- Parâmetros: valor
+- Função: Retira um valor do saldo da conta e registra a transação no histórico. Lança erros se o valor for menor ou igual a zero ou se o saldo for insuficiente.
+
+- Método “Transferir”:
+- Parâmetros: valor, contaDestino
+- Função: Faz transferência para outra conta. Primeiro, retira o valor da conta de origem, e depois deposita na conta de destino. Lança erros se o valor for menor ou igual a zero ou se o saldo for insuficiente.
+
+
+Capítulo 4.
+Funções:
+
+Função criarConta:
+- Parâmetros: tipo
+- Função: Cria uma nova conta bancária com base no tipo especificado (corrente ou poupanca). Solicita detalhes do usuário e retorna uma instância da conta criada. Lança um erro se o tipo de conta for inválido.
+
+Função EntrarNaConta:
+- Parâmetros: tipo
+- Função: Permite que um usuário faça login na conta fornecendo o ID e a senha. Verifica se as credenciais correspondem a alguma conta registrada e retorna a conta correspondente. Se as credenciais forem inválidas, exibe uma mensagem de erro.
+
+CAPÍTULO 5. 
+Loop Principal do Menu:
+Este é o loop principal que controla a interação do usuário com o sistema.
+
+- Opção 1 - Criar Conta:
+- Cria uma nova conta com base na escolha do tipo e adiciona à lista de contas.
+
+- Opção 2 - Depositar:
+- Permite ao usuário depositar um valor na conta selecionada.
+
+- Opção 3 - Sacar:
+- Permite ao usuário sacar um valor da conta selecionada.
+
+- Opção 4 - Transferir:
+- Permite ao usuário transferir um valor para outra conta. Exibe uma lista de contas disponíveis para seleção.
+
+- Opção 5 - Aplicar Juros:
+- Permite ao usuário aplicar juros à conta poupança selecionada.
+
+- Opção 6 - Gerar Extrato:
+- Gera e exibe um extrato detalhado da conta selecionada.
+
+- Opção 7 - Entrar na Conta:
+- Permite ao usuário entrar na conta fornecendo o ID e a senha.
+
+- Opção 8 - Sair:
+- Sai do sistema e encerra o programa.
+
+- Tratamento de Erros:
+- Em caso de erros durante a execução das opções, exibe uma mensagem de erro e solicita ao usuário pressionar Enter para continuar.
